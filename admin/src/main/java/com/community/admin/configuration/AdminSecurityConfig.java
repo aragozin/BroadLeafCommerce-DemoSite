@@ -32,7 +32,7 @@ import javax.servlet.Filter;
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = false, prePostEnabled = true)
 @ComponentScan({"org.broadleafcommerce.profile.web.core.security","org.broadleafcommerce.core.web.order.security"})
 public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -121,20 +121,20 @@ public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**")
                 .access("isAuthenticated()")
                 .and()
-            .requiresChannel()
-                .antMatchers("/**")
-                .requiresSecure()
-                .and()
+//            .requiresChannel()
+//                .antMatchers("/**")
+//                .requiresSecure()
+//                .and()
             .logout()
                 .invalidateHttpSession(true)
                 .logoutUrl("/adminLogout.htm")
                 .logoutSuccessHandler(logoutSuccessHandler)
                 .and()
-            .portMapper()
-                .http(80).mapsTo(443)
-                .http(8080).mapsTo(8443)
-                .http(8081).mapsTo(8444)
-                .and()
+//            .portMapper()
+//                .http(80).mapsTo(443)
+//                .http(8080).mapsTo(8443)
+//                .http(8081).mapsTo(8444)
+//                .and()
                 .addFilterBefore(adminCsrfFilter, UsernamePasswordAuthenticationFilter.class);
     }
 

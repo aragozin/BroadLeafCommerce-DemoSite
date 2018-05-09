@@ -38,7 +38,7 @@ import javax.servlet.Filter;
 @Configuration
 @EnableWebSecurity
 @ComponentScan({"org.broadleafcommerce.common.web.security","org.broadleafcommerce.profile.web.core.security","org.broadleafcommerce.core.web.order.security"})
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = false, prePostEnabled = true)
 public class SiteSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Configuration
@@ -138,10 +138,10 @@ public class SiteSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/account/wishlist/**", "/account/**")
                 .access("isAuthenticated()")
                 .and()
-            .requiresChannel()
-                .antMatchers("/","/**")
-                .requiresSecure()
-                .and()
+//            .requiresChannel()
+//                .antMatchers("/","/**")
+//                .requiresSecure()
+//                .and()
             .logout()
                 .invalidateHttpSession(true)
                 .deleteCookies("ActiveID")
