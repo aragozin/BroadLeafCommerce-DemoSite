@@ -1,0 +1,10 @@
+#
+#Sat May 12 09:47:41 MSK 2018
+extra-Accept=text/html,application/xhtml+xml,application/xml;q\=0.9,image/webp,image/apng,*/*;q\=0.8
+url=http\://localhost\:8080/checkout?guest-checkout\=true
+extra-Referer=http\://localhost\:8080/checkout/login
+extra-Upgrade-Insecure-Requests=1
+extra-Accept-Encoding=gzip, deflate
+encodingType=EncodingType[name\=application/x-www-form-urlencoded]
+extra-Accept-Language=en-US
+method=GET

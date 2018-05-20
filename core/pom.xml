@@ -42,5 +42,14 @@
             <groupId>org.broadleafcommerce</groupId>
             <artifactId>broadleaf-paypal</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.broadleafcommerce</groupId>
+            <artifactId>broadleaf-paypal</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>com.mycompany-community</groupId>
+        	<artifactId>boot-community-demo-pref</artifactId>
+        	<version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

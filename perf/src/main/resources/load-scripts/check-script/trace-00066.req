@@ -1,0 +1,13 @@
+#
+#Sat May 12 09:47:37 MSK 2018
+method=POST
+url=http\://localhost\:8080/cart/add
+encodingType=EncodingType[name\=application/x-www-form-urlencoded]
+extra-Accept-Language=en-US
+extra-Accept-Encoding=gzip, deflate
+extra-Upgrade-Insecure-Requests=1
+extra-Referer=http\://localhost\:8080/search?q\=Hot
+extra-Accept=application/json, text/javascript, */*; q\=0.01
+extra-Content-Type=application/x-www-form-urlencoded; charset\=UTF-8
+body=productId\=3&quantity\=1&csrfToken\=[!csrfToken!]
+extra-X-Requested-With=XMLHttpRequest

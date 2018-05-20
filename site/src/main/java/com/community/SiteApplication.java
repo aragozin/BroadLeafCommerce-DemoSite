@@ -6,10 +6,17 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 
+import info.ragozin.demostarter.DemoInitializer;
+
 @SpringBootApplication
 @EnableAutoConfiguration
 public class SiteApplication {
 
+	static {
+		DemoInitializer.initConfiguration();
+		DemoInitializer.initLifeGrant("storefront");
+	}
+	
     @Configuration
     @EnableBroadleafSiteAutoConfiguration
     public static class BroadleafFrameworkConfiguration {}

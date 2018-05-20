@@ -1,0 +1,11 @@
+#
+#Sat May 12 09:47:36 MSK 2018
+method=GET
+url=http\://localhost\:8080/product-quick-view?id\=3
+encodingType=EncodingType[name\=application/x-www-form-urlencoded]
+extra-Accept-Language=en-US
+extra-Accept-Encoding=gzip, deflate
+extra-Upgrade-Insecure-Requests=1
+extra-Referer=http\://localhost\:8080/search?q\=Hot
+extra-Accept=*/*
+extra-X-Requested-With=XMLHttpRequest

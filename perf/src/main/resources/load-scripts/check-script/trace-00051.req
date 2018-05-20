@@ -1,0 +1,10 @@
+#
+#Sat May 12 09:47:33 MSK 2018
+extra-Accept=*/*
+url=http\://localhost\:8080/js/checkoutEventHandlers.js
+extra-Referer=http\://localhost\:8080/
+extra-Upgrade-Insecure-Requests=1
+extra-Accept-Encoding=gzip, deflate
+encodingType=EncodingType[name\=application/x-www-form-urlencoded]
+extra-Accept-Language=en-US
+method=GET

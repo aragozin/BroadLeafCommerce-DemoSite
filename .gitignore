@@ -1,4 +1,5 @@
 target/
+var/
 .classpath
 .project
 .settings

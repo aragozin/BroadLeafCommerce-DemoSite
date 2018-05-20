@@ -26,7 +26,7 @@ import javax.servlet.Filter;
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = false, prePostEnabled = true)
 public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final Log LOG = LogFactory.getLog(ApiSecurityConfig.class);

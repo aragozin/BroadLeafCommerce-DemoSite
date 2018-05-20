@@ -1,0 +1,13 @@
+#
+#Sat May 12 09:47:44 MSK 2018
+method=POST
+url=http\://localhost\:8080/checkout/singleship
+encodingType=EncodingType[name\=application/x-www-form-urlencoded]
+extra-Accept-Language=en-US
+extra-Accept-Encoding=gzip, deflate
+extra-Upgrade-Insecure-Requests=1
+extra-Referer=http\://localhost\:8080/checkout?guest-checkout\=true
+extra-Accept=*/*
+extra-Content-Type=application/x-www-form-urlencoded; charset\=UTF-8
+body=address.isoCountryAlpha2\=US&address.fullName\=Tom&address.addressLine1\=Nowhere&address.addressLine2\=&address.city\=Town&address.stateProvinceRegion\=&address.postalCode\=&address.phonePrimary.phoneNumber\=&fulfillmentOptionId\=2&csrfToken\=[!csrfToken!]
+extra-X-Requested-With=XMLHttpRequest

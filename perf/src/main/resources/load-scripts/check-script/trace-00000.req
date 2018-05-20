@@ -1,0 +1,12 @@
+#
+#Sat May 12 09:47:29 MSK 2018
+method=GET
+url=http\://localhost\:8080/
+processor-csrf: RegExBodyExtractor
+processor-csrf-name: csrfToken
+processor-csrf-pattern: \\"(\\w\\w\\w\\w-\\w\\w\\w\\w-\\w\\w\\w\\w-\\w\\w\\w\\w-\\w\\w\\w\\w-\\w\\w\\w\\w-\\w\\w\\w\\w-\\w\\w\\w\\w)\"
+extra-Upgrade-Insecure-Requests=1
+extra-Accept=text/html,application/xhtml+xml,application/xml;q\=0.9,image/webp,image/apng,*/*;q\=0.8
+extra-Accept-Encoding=gzip, deflate
+encodingType=EncodingType[name\=application/x-www-form-urlencoded]
+extra-Accept-Language=en-US

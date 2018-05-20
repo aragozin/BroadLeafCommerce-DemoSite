@@ -1,0 +1,12 @@
+#
+#Sat May 12 09:47:44 MSK 2018
+method=GET
+url=should be redirceted
+encodingType=EncodingType[name\=application/x-www-form-urlencoded]
+extra-Accept-Language=en-US
+extra-Accept-Encoding=gzip, deflate
+extra-Cache-Control=max-age\=0
+extra-Upgrade-Insecure-Requests=1
+extra-Referer=http\://localhost\:8080/checkout?guest-checkout\=true
+extra-Accept=text/html,application/xhtml+xml,application/xml;q\=0.9,image/webp,image/apng,*/*;q\=0.8
+extra-Origin=http\://localhost\:8080/checkout?guest-checkout\=true
