@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executor;
 
 import org.xml.sax.SAXException;
 
@@ -24,14 +25,33 @@ public class LoadScriptExecutor {
 		this.script.addAll(script);
 	}
 	
-	public void perform() throws SAXException {
+	public void perform() {
+		perform(cmd -> cmd.run(), () -> {});			
+	}
+	
+	public void perform(Executor exec, Runnable completeTask) {
 		next = script.iterator();
 		WebClient client = new WebClient();
 		connection = new HttpWebConnection(client);
 		connection = new LoggingWebConnection(connection);
 		connection = new TrivialCachingWebConnection(connection);
-		while(next.hasNext()) {
-			next.next().perform(connection, variables);
-		}
+		Runnable step = new Runnable() {
+			
+			@Override
+			public void run() {
+				try {
+					next.next().perform(connection, variables);
+				} catch (SAXException e) {
+					e.printStackTrace();
+				}
+				if (next.hasNext()) {
+					exec.execute(this);
+				}
+				else {
+					completeTask.run();
+				}
+			}
+		};
+		exec.execute(step);
 	}	
 }

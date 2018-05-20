@@ -32,9 +32,14 @@ public class SolrStarter {
 					+ System.getProperty("path.separator") + "start.jar"
 					+ System.getProperty("path.separator") + "resources/"
 					);
-//		cmd.add("org.eclipse.jetty.start.Main");
-//		cmd.add("--help");
-			cmd.add(SolrStarter.class.getName());
+			boolean jettyStarter = false;
+			if (jettyStarter) {
+				cmd.add("org.eclipse.jetty.start.Main");
+				cmd.add("--help");
+			}			
+			else { 
+				cmd.add(SolrStarter.class.getName());
+			}
 			
 			ProcessBuilder pb = new ProcessBuilder(cmd.toArray(new String[0]));
 			pb.directory(new File(solrHome, "server"));

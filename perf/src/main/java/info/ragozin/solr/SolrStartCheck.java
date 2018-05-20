@@ -1,15 +1,9 @@
 package info.ragozin.solr;
 
-import static info.ragozin.demostarter.DemoInitializer.getDemoHome;
-
 import java.io.File;
 import java.io.IOException;
-import java.lang.ProcessBuilder.Redirect;
-import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.gridkit.nanocloud.Cloud;
 import org.gridkit.nanocloud.SimpleCloudFactory;
@@ -72,16 +66,6 @@ public class SolrStartCheck {
 		SolrStarter.startSolr();	
 	}
 	
-	private static void start(String main, String... args) {
-		try {
-			Class<?> cls = Class.forName(main);
-			Method m = cls.getMethod("main", String[].class);
-			m.invoke(null, (Object)args);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	private URL jarPath(File base, String path) throws MalformedURLException {
 		File jar = new File(base, path);
 		if (!jar.isFile()) {

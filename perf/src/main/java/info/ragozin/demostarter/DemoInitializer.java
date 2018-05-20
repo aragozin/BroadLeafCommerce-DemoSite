@@ -47,4 +47,14 @@ public class DemoInitializer {
 		}
 	}
 	
+	public static String path(String path) {
+		File base  = new File(getDemoHome());
+		File fpath = new File(base, path);
+		return fpath.getPath();
+	}	
+	
+	public static File file(String path) {
+		File file = new File(path(path));
+		return file;
+	}
 }
