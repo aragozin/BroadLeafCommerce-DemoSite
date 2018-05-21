@@ -2,8 +2,11 @@ package info.ragozin.loadscript;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
+import java.util.Random;
+import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -28,7 +31,7 @@ public class LoadGeneratorCheck {
 		
 		List<LoadScriptStep> steps = ScriptLoader.loadScript("load-scripts/check-script");
 
-		ExecutorService service = Executors.newFixedThreadPool(4);
+		Executor service = createRandomDelayExecutor(4);
 		int sessions = 50;
 		
 		for(int i = 0; i != sessions; ++i) {
@@ -40,7 +43,21 @@ public class LoadGeneratorCheck {
 		}
 	}
 
-	private void startSession(ExecutorService service, List<LoadScriptStep> steps) {
+	private Executor createRandomDelayExecutor(int threads) {
+		final Random rnd = new Random();
+		final ScheduledExecutorService schedule = Executors.newScheduledThreadPool(threads);
+		Executor exec = new Executor() {
+			
+			@Override
+			public void execute(Runnable command) {
+				schedule.schedule(command, rnd.nextInt(1000), TimeUnit.MILLISECONDS);
+				
+			}
+		};
+		return exec;
+	}
+	
+	private void startSession(Executor service, List<LoadScriptStep> steps) {
 		
 		LoadScriptExecutor executor = new LoadScriptExecutor(steps);
 		

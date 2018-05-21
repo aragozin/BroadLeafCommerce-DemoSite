@@ -1,8 +1,7 @@
+package info.ragozin.loadscript;
 import java.io.IOException;
 
 import org.junit.Test;
-
-import info.ragozin.loadscript.LoadGeneratorCheck;
 
 public class StartLoad {
 
