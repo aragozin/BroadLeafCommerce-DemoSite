@@ -1,1 +1,3 @@
---org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.broadleafcommerce.autoconfigure.H2DatabaseAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.broadleafcommerce.autoconfigure.HSQLDatabaseAutoConfiguration,\
+com.broadleafcommerce.solr.autoconfigure.SolrAutoConfiguration

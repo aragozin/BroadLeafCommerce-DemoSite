@@ -44,6 +44,7 @@
             <groupId>org.broadleafcommerce</groupId>
             <artifactId>broadleaf-framework-web</artifactId>
         </dependency>
+        <!-- Provided by perf 
         <dependency>
             <groupId>com.broadleafcommerce</groupId>
             <artifactId>broadleaf-boot-starter-solr</artifactId>
@@ -52,6 +53,7 @@
             <groupId>com.broadleafcommerce</groupId>
             <artifactId>broadleaf-boot-starter-hsql-database</artifactId>
         </dependency>
+         -->
         <dependency>
             <groupId>org.broadleafcommerce</groupId>
             <artifactId>broadleaf-thymeleaf3-presentation</artifactId>

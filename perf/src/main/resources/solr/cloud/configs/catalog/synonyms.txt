@@ -1,0 +1,8 @@
+# Example configuration file for synonym mappings in Solr.
+# This file is referenced in schema.xml under the text_synonyms fieldType and should be copied
+# into Solr's conf directory for use.
+# 
+# For documentation on the acceptable format of this file see the Solr documentation
+# at https://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters#solr.SynonymFilterFactory
+
+spicy, hot
