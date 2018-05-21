@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class ProcessWatchDogCheck {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void check() throws InterruptedException {
 		ProcessWatchDog watchdog = new ProcessWatchDog(new File("target/check.lg"));
