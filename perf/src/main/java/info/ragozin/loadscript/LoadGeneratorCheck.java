@@ -34,7 +34,10 @@ public class LoadGeneratorCheck {
 		Executor service = createRandomDelayExecutor(4);
 		int sessions = 50;
 		
+		Random rnd = new Random(1);
 		for(int i = 0; i != sessions; ++i) {
+			int delay = rnd.nextInt(5);
+			Thread.sleep(delay + 1000);
 			startSession(service, steps);
 		}		
 		
