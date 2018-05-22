@@ -228,7 +228,7 @@ public class SolrServer implements SmartLifecycle {
 //    }
 
     protected void stopSolr() {
-    	SolrStarter.startSolr();
+    	SolrStarter.stopSolr();
     }
     
     protected boolean synchConfig() {
