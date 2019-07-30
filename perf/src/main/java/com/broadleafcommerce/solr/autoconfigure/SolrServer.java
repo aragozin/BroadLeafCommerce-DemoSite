@@ -52,10 +52,10 @@ public class SolrServer implements SmartLifecycle {
 
     protected final SolrProperties props;
     protected boolean isWin = System.getProperty("os.name").toLowerCase().contains("win");
-    
+
     protected static final String WINDOWS_EXT = "zip";
     protected static final String UNIX_EXT = "tgz";
-    
+
     /**
      * Indicates that Solr was created within this lifecycle and should be stopped. If not started from here,
      * it should also not be stopped from here
@@ -149,7 +149,7 @@ public class SolrServer implements SmartLifecycle {
             }
         }
     }
-    
+
     protected void checkCoreStatus() {
         boolean allCoresOnline = false;
         String workingDirectory = getWorkingDirectory();
@@ -230,7 +230,7 @@ public class SolrServer implements SmartLifecycle {
     protected void stopSolr() {
     	SolrStarter.stopSolr();
     }
-    
+
     protected boolean synchConfig() {
         String workingDirectory = getWorkingDirectory();
         File serverDir = new File(workingDirectory, String.format(props.getName(), props.getVersion()) +
@@ -347,7 +347,7 @@ public class SolrServer implements SmartLifecycle {
         }
         return response;
     }
-    
+
     protected String getExtension() {
         return isWin ? WINDOWS_EXT : UNIX_EXT;
     }

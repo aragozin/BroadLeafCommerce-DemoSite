@@ -26,7 +26,7 @@ public class CheckoutPage {
 			}
 		}
 	}
-	
+
 	public void expectShipmentCardVisible(boolean visible) {
 		WebElement we = driver.findElement(By.cssSelector("#shipping_info_stage"));
 		if (we.isDisplayed() != visible) {
@@ -54,19 +54,19 @@ public class CheckoutPage {
 	}
 
 	public void setCity(String city) {
-		driver.findElement(By.cssSelector("#city")).sendKeys(city);		
+		driver.findElement(By.cssSelector("#city")).sendKeys(city);
 	}
-	
+
 	public void setShippingMethod(int method) {
 		driver.findElements(By.cssSelector("div.shipping-methods-wrapper input")).get(method).click();
 	}
 
 	public void setState(String state) {
-		driver.findElement(By.cssSelector("#stateProvinceRegion")).sendKeys(state + "\n");		
+		driver.findElement(By.cssSelector("#stateProvinceRegion")).sendKeys(state + "\n");
 	}
 
 	public void setPostalCode(String code) {
-		driver.findElement(By.cssSelector("#postalCode")).sendKeys(code);		
+		driver.findElement(By.cssSelector("#postalCode")).sendKeys(code);
 	}
 
 	public void stageContinue() {
@@ -77,11 +77,11 @@ public class CheckoutPage {
 			}
 		}
 	}
-	
+
 	public void placeOrder() {
 		driver.findElement(By.cssSelector("div.checkout-stage-action .js-performCheckout")).click();
 	}
-	
+
 	public void chooseCollectOnDeliveryPayment() {
 		int tries = 2;
 		while(tries > 0) {

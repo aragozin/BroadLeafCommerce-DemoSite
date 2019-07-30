@@ -9,5 +9,5 @@ public class StartLoad {
 	public void startLoad() throws IOException, InterruptedException {
 		new LoadGeneratorCheck().go_mt();
 	}
-	
+
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.mycompany-community</groupId>
+        <artifactId>boot-community-demo</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>boot-community-demo-launcher</artifactId>
+    <packaging>jar</packaging>
+
+    <profiles>
+      <profile>
+        <id>run_n_load</id>
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>2.19.1</version>
+              <configuration>
+                <excludes>
+                  <exclude>**Test.java</exclude>
+                </excludes>
+                <includes>
+                  <include>**DemoStartAndLoad.java</include>
+                </includes>
+              </configuration>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
+      <profile>
+        <id>run</id>
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>2.19.1</version>
+              <configuration>
+                <excludes>
+                  <exclude>**Test.java</exclude>
+                </excludes>
+                <includes>
+                  <include>**DemoStarter.java</include>
+                </includes>
+              </configuration>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mycompany-community</groupId>
+            <artifactId>boot-community-demo-site</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mycompany-community</groupId>
+            <artifactId>boot-community-demo-perf</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

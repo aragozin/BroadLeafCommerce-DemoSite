@@ -37,7 +37,7 @@
         <debug.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${debug.port}</debug.args>
         <boot.jvm.memory>-Xmx1536M</boot.jvm.memory>
         <boot.jvm.args>${boot.jvm.memory} ${debug.args}</boot.jvm.args>
-        
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.uri>${project.baseUri}</project.uri>
     </properties>
@@ -69,9 +69,31 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-clean-plugin</artifactId>
+              <version>${maven-clean-plugin.version}</version>
+              <configuration>
+                <filesets>
+                  <fileset>
+                    <directory>${project.basedir}</directory>
+                    <includes>
+                      <include>target</include>
+                      <include>surefire*</include>
+                    </includes>
+                    <followSymlinks>false</followSymlinks>
+                  </fileset>
+                  <fileset>
+                    <directory>${project.basedir}/pids</directory>
+                    <!-- <directory>${project.basedir}/var</directory> -->
+                  </fileset>
+                </filesets>
+              </configuration>
+            </plugin>
         </plugins>
+
     </build>
-    
+
     <profiles>
         <profile>
             <id>jrebel</id>
@@ -88,6 +110,17 @@
                 <artifactId>boot-community-demo-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.mycompany-community</groupId>
+                <artifactId>boot-community-demo-site</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycompany-community</groupId>
+                <artifactId>boot-community-demo-perf</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.broadleafcommerce</groupId>
@@ -103,5 +136,6 @@
         <module>admin</module>
         <module>api</module>
         <module>perf</module>
+        <module>launcher</module>
     </modules>
 </project>

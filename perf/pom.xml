@@ -5,17 +5,17 @@
         <artifactId>boot-community-demo</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    
+
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>boot-community-demo-pref</artifactId>
+    <artifactId>boot-community-demo-perf</artifactId>
     <packaging>jar</packaging>
-    
+
     <name>Community Demo - Load testing</name>
     <description>Load testing stuff, for Customized Broadleaf Commerce Site</description>
-    
+
     <properties>
-        <debug.port>8000</debug.port>
-        <selenium.version>3.11.0</selenium.version>
+        <selenium.version>3.141.59</selenium.version>
+        <selenium-htmlunit.version>2.21</selenium-htmlunit.version>
     </properties>
 
     <profiles>
@@ -39,8 +39,8 @@
           </plugins>
         </build>
       </profile>
-    </profiles>    
-    
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -92,7 +92,7 @@
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>htmlunit-driver</artifactId>
-                <version>2.30.0</version>
+                <version>${selenium-htmlunit.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.h2database</groupId>
@@ -116,7 +116,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -138,7 +138,7 @@
             <groupId>com.broadleafcommerce</groupId>
             <artifactId>broadleaf-boot-starter-hsql-database</artifactId>
             <optional>true</optional>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>com.broadleafcommerce</groupId>
             <artifactId>broadleaf-boot-starter-solr</artifactId>
@@ -168,6 +168,6 @@
             <groupId>org.gridkit.lab</groupId>
             <artifactId>nanocloud</artifactId>
             <version>0.8.15</version>
-        </dependency>        
+        </dependency>
     </dependencies>
 </project>

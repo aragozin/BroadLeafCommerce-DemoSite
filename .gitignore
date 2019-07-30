@@ -1,4 +1,5 @@
 target/
+pids/
 var/
 .classpath
 .project
