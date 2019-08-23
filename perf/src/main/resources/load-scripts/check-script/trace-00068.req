@@ -8,3 +8,6 @@ extra-Accept-Encoding=gzip, deflate
 encodingType=EncodingType[name\=application/x-www-form-urlencoded]
 extra-Accept-Language=en-US
 method=GET
+processor-loop: RandomLoopProcessor
+processor-loop-chance: 0.95
+

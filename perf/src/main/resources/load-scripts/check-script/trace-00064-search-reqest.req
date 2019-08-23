@@ -8,3 +8,8 @@ extra-Accept-Encoding=gzip, deflate
 encodingType=EncodingType[name\=application/x-www-form-urlencoded]
 extra-Accept-Language=en-US
 method=GET
+processor-pickProduct: RandomNumberGenerator
+processor-pickProduct-name: productId
+processor-pickProduct-min: 1
+processor-pickProduct-max: 19
+
