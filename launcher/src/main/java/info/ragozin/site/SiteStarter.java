@@ -90,5 +90,11 @@ public class SiteStarter {
     private static void initJvmArgs(List<String> cmd) {
         cmd.add("-Xmx512m");
         cmd.add("-Xloggc:logs/gc.log");
+        String[] extraFlags = DemoInitializer.prop("storefront.jvm.options", "").split("\\s+");
+        for(String flag: extraFlags) {
+            if (flag.trim().length() > 0) {
+                cmd.add(flag);
+            }
+        }
     }
 }

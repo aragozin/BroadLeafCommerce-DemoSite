@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.ProcessBuilder.Redirect;
 import java.lang.management.ManagementFactory;
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +22,7 @@ import org.hsqldb.persist.HsqlProperties;
 import org.hsqldb.server.ServerAcl;
 
 import info.ragozin.demostarter.DemoInitializer;
+import info.ragozin.util.socketstifler.LatencyProxy;
 
 public class HsqlStarter {
 
@@ -85,16 +87,32 @@ public class HsqlStarter {
 
     public static void main(String[] args) {
         initLifeGrant("hsqldb");
-        new HsqlStarter().startServer();
+        try {
+            new HsqlStarter().startServer();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public HsqlStarter() {
+    public HsqlStarter() throws Exception {
+
+        int hsqlPort = Integer.valueOf(DemoInitializer.prop("demo.database.realPort", "9001"));
+        int proxyPort = Integer.valueOf(DemoInitializer.prop("demo.database.port", "9002"));
+
+        if (hsqlPort != proxyPort) {
+//            SocketStifler stifler = SocketStifler.start();
+//            stifler.addRoute(new InetSocketAddress(proxyPort), new InetSocketAddress(hsqlPort));
+            LatencyProxy.start(new InetSocketAddress(proxyPort), new InetSocketAddress(hsqlPort));
+
+            System.out.println("Forward " + proxyPort + " -> " + hsqlPort + " with delay and bandwith limitation");
+        }
+
         Properties databaseConfig = new Properties();
         databaseConfig.setProperty("server.database.0", "file:" + DemoInitializer.path("var/hsqldb/broadleaf"));
         databaseConfig.setProperty("server.dbname.0", "broadleaf");
         databaseConfig.setProperty("server.remote_open", "true");
         databaseConfig.setProperty("hsqldb.reconfig_logging", "false");
-        databaseConfig.setProperty("server.port", DemoInitializer.prop("demo.database.port", "9001"));
+        databaseConfig.setProperty("server.port", String.valueOf(hsqlPort));
 
         this.props = new HsqlProperties(databaseConfig);
     }

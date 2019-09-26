@@ -2,7 +2,7 @@ package info.ragozin.hsql;
 
 import org.junit.Test;
 
-public class HsqlStarterChech {
+public class HsqlStarterCheck {
 
 	@Test
 	public void startHsql() throws InterruptedException {
